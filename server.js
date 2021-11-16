@@ -2,9 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors');
 
-const port = 5000
-
-app.set('port', process.env.PORT || 5000);
+app.set("port", process.env.PORT || 5000);
 app.locals.title = 'Trackr API';
 app.use(express.json())
 app.use(cors());
@@ -45,6 +43,6 @@ app.delete('/api/v1/repos/:id', (request, response) => {
 	response.status(200).send(app.locals.savedRepos);
 });
 
-app.listen(port, () => {
-  console.log(`Trackr API is listening at http://localhost:${port}`)
+app.listen(app.get("port"), () => {
+  console.log(`${app.locals.title} is running on http://localhost:${app.get("port")}.`)
 })
