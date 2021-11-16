@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express()
 const cors = require('cors');
-app.use(express.json())
-app.use(cors());
 
 const port = 5000
+
 app.set('port', process.env.PORT || 5000);
 app.locals.title = 'Trackr API';
+app.use(express.json())
+app.use(cors());
 
 app.locals.savedRepos = [];
 
