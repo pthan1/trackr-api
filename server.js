@@ -10,6 +10,11 @@ app.locals.title = 'Trackr API';
 
 app.locals.savedRepos = [];
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the trackr api")
+})
+
+
 app.get('/api/v1/repos', (req, res) => {
   const repos = app.locals.savedRepos;
   res.send(repos)
